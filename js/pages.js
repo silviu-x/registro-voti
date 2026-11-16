@@ -38,7 +38,7 @@ export function viewOverview(){
     if(rf) delta=lt.v-rf.v;
   }
   const segments = Array.from({length:10}, (_, i) =>
-    '<rect x="9" y="89" width="29" height="16" rx="5" transform="rotate('+((i+.5)*18)+' 105 105)" style="--i:'+i+'" fill="'+(i<Math.round(gen)?'#ffa66c':'var(--surface-2)')+'"/>'
+    '<rect x="9" y="89" width="29" height="16" rx="5" transform="rotate('+((i+.5)*18)+' 105 105)" style="--i:'+i+'" fill="'+(i<Math.round(gen)?'var(--accent)':'var(--surface-2)')+'"/>'
   ).join('');
   var h='<div class="stack overview"><section class="card dial"><div class="eyebrow">Media generale · '+PERIOD_LABEL[store.ui.period]+'</div>'+
     '<div class="meter"><svg viewBox="0 0 210 110" aria-hidden="true">'+segments+'</svg><strong>'+f2(gen)+'</strong></div>'+

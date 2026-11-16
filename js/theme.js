@@ -22,7 +22,7 @@ export function setTheme(theme) {
 
 function updateThemeColor() {
   const meta = document.querySelector('meta[name="theme-color"]');
-  if (meta) meta.content = activeTheme === 'light' ? '#f5f2ec' : '#0c111c';
+  if (meta) meta.content = '#08203e';
 }
 
 export function getTheme() {
