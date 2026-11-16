@@ -1,7 +1,7 @@
 import {store} from './store.js';
 import {TYPES} from './data.js';
 import {MONTHS, DAY, esc, f2, sgn, cls, dShort, dLong, $} from './utils.js';
-import {bySubject, generalAvg, generalSeries, cmp, ts, neededGrade, fmtGrade, parseGrade} from './calculations.js';
+import {bySubject, generalAvg, generalSeries, cmp, ts, withGrades, neededGrade, fmtGrade, parseGrade} from './calculations.js';
 import {drawChart} from './charts.js';
 import {preferenceControls} from './preferences.js';
 import {getTheme} from './theme.js';
