@@ -216,3 +216,27 @@ body {
 input[type="text"],input[type="number"],input[type="date"],select { border-radius:10px; }
 .panel { box-shadow:0 12px 34px rgba(0,0,0,.09); }
 #view { padding-bottom:24px; }
+
+.android-offer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 14px 10px 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+.android-offer p { margin: 3px 0 10px; color: var(--fg-2); }
+.android-offer a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; }
+.android-offer button {
+  flex: 0 0 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--fg-2);
+  font-size: 1.3rem;
+  cursor: pointer;
+}

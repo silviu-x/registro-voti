@@ -1,1 +1,2 @@
-export const privacyContact = 'Titolare del trattamento: Silviu Andrei Savin. Email per richieste privacy: silviusavin8@gmail.com';
+// Inserire nome del titolare e recapito effettivo per le richieste privacy.
+export const privacyContact = '';

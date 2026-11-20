@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function ownsDocument(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+
+    // Controllo del contenitore principale, delle chiavi e delle dimensioni.
+    // I dati degli utenti sono isolati: ogni account ha un solo documento /users/<uid>.
+    function validGradebook() {
+      let data = request.resource.data;
+      return data.keys().hasAll(['v', 'savedAt', 'demo', 'subjects', 'grades', 'settings'])
+        && data.keys().hasOnly(['v', 'savedAt', 'demo', 'subjects', 'grades', 'settings'])
+        && data.v == 1
+        && data.savedAt is number
+        && data.demo is bool
+        && data.subjects is list
+        && data.subjects.size() <= 60
+        && data.grades is list
+        && data.grades.size() <= 500
+        && data.settings is map
+        && data.settings.keys().hasAll(['cutoff', 'mode'])
+        && data.settings.keys().hasOnly(['cutoff', 'mode'])
+        && data.settings.cutoff is string
+        && data.settings.cutoff.matches('^\\d{4}-\\d{2}-\\d{2}$')
+        && data.settings.mode in ['all', 'subjects'];
+    }
+
+    match /users/{userId} {
+      allow read: if ownsDocument(userId);
+      allow create, update: if ownsDocument(userId) && validGradebook();
+      allow delete: if ownsDocument(userId);
+    }
+  }
+}

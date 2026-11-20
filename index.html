@@ -28,6 +28,15 @@
     </div>
   </header>
 
+  <aside id="androidOffer" class="android-offer" aria-labelledby="androidTitle" hidden>
+    <div>
+      <strong id="androidTitle">Registro Voti per Android</strong>
+      <p>Preferisci usare l’app? Scaricala da GitHub.</p>
+      <a class="btn-primary" id="androidDownload" href="https://github.com/silviu-x/registro-voti-android/releases/latest">Apri l’ultima release</a>
+    </div>
+    <button type="button" id="dismissAndroid" aria-label="Chiudi l’invito a scaricare l’app">×</button>
+  </aside>
+
   <div class="bar">
     
     <div class="seg" id="seg" role="group" aria-label="Periodo"></div>
@@ -39,6 +48,7 @@
 </div>
 <div class="toast" id="toast" role="status" hidden></div>
 
+<script type="module" src="./js/android-offer.js"></script>
 <script type="module" src="./js/app.js"></script>
 </body>
 </html>
